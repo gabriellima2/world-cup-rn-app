@@ -19,6 +19,7 @@ module.exports = function(api) {
           "@interfaces": "./src/interfaces",
           "@globalTypes": "./src/types",
 					"@services": "./src/services",
+					"@theme": "./src/theme.ts"
         }
       }]
     ]

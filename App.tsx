@@ -26,7 +26,7 @@ export default function App() {
 
 	return (
 		<ApolloProvider client={client}>
-			<StatusBar style="auto" />
+			<StatusBar style="light" />
 			<Routes />
 		</ApolloProvider>
 	);
