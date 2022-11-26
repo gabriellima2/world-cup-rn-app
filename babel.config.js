@@ -18,6 +18,7 @@ module.exports = function(api) {
           "@screens": "./src/screens",
           "@interfaces": "./src/interfaces",
           "@globalTypes": "./src/types",
+					"@services": "./src/services",
         }
       }]
     ]

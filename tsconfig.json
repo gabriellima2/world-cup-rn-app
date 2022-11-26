@@ -9,6 +9,7 @@
       "@screens/*": ["./src/screens/*"],
       "@interfaces/*": ["./src/interfaces/*"],
       "@globalTypes/*": ["./src/types/*"],
+			"@services/*": ["./src/services/*"],
     },
   },
   "extends": "expo/tsconfig.base"
