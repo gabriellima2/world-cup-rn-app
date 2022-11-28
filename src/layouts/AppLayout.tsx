@@ -1,7 +1,5 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
-import { SafeContainer } from "@components/SafeContainer";
 
 import type { IChildren } from "@interfaces/IChildren";
 import { theme } from "@theme";
@@ -11,12 +9,14 @@ export const AppLayout = (props: IChildren) => (
 		colors={[theme.mainColor.primary, theme.mainColor.secondary]}
 		style={styles.container}
 	>
-		<SafeContainer style={styles.container}>{props.children}</SafeContainer>
+		<View style={styles.container}>{props.children}</View>
 	</LinearGradient>
 );
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		paddingHorizontal: 8,
+		paddingTop: 12,
 	},
 });

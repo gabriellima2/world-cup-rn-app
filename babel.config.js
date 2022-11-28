@@ -3,6 +3,12 @@ module.exports = function(api) {
   return {
     presets: ['babel-preset-expo'],
     plugins: [
+			["module:react-native-dotenv", {
+        moduleName: "@env",
+        path: ".env",
+				safe: false,
+        allowUndefined: true,
+			}],
       [require.resolve("babel-plugin-module-resolver"), {
         root: ["."],
         extensions: [
@@ -19,7 +25,9 @@ module.exports = function(api) {
           "@interfaces": "./src/interfaces",
           "@globalTypes": "./src/types",
 					"@services": "./src/services",
-					"@theme": "./src/theme.ts"
+					"@models": "./src/models",
+					"@graphql": "./src/graphql",
+					"@hooks": "./src/hooks",
         }
       }]
     ]

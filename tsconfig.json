@@ -10,8 +10,12 @@
       "@interfaces/*": ["./src/interfaces/*"],
       "@globalTypes/*": ["./src/types/*"],
 			"@services/*": ["./src/services/*"],
-			"@theme": ["./src/theme.ts"]
+			"@theme": ["./src/theme.ts"],
+			"@models/*": ["./src/models/*"],
+			"@graphql/*": ["./src/graphql/*"],
+			"@hooks/*": ["./src/hooks/*"],
     },
   },
+	"typeRoots": ["./types"],
   "extends": "expo/tsconfig.base"
 }
