@@ -28,6 +28,9 @@ module.exports = function(api) {
 					"@models": "./src/models",
 					"@graphql": "./src/graphql",
 					"@hooks": "./src/hooks",
+					"@theme": "./src/theme.ts",
+					"@mocks": "./src/mocks",
+					"@utils": "./src/utils"
         }
       }]
     ]
