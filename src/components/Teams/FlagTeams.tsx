@@ -1,14 +1,15 @@
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { Loading } from "@components/Loading";
 import { Error } from "@components/Error";
 import { List } from "@components/List";
+import { Flag } from "@components/Flag";
 
 import { TeamFlag, useTeamsFlag } from "@hooks/useTeamsFlag";
 
 const Team = (props: TeamFlag) => (
 	<View style={styles.item}>
-		<Image source={{ uri: props.flag_url }} style={styles.item__image} />
+		<Flag url={props.flag_url} />
 	</View>
 );
 
@@ -39,10 +40,5 @@ const styles = StyleSheet.create({
 	},
 	item: {
 		marginHorizontal: 4,
-	},
-	item__image: {
-		width: 50,
-		height: 50,
-		borderRadius: 1000,
 	},
 });

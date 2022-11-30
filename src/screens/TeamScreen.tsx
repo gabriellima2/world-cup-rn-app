@@ -1,10 +1,10 @@
-import { Text } from "react-native";
+import { CompletTeams } from "@components/Teams/CompletTeams";
 import { AppLayout } from "@layouts/AppLayout";
 
 export const TeamScreen = () => {
 	return (
 		<AppLayout>
-			<Text>Team</Text>
+			<CompletTeams />
 		</AppLayout>
 	);
 };

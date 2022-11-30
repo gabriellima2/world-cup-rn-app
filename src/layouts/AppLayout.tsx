@@ -10,7 +10,7 @@ interface AppLayoutProps extends IChildren {
 }
 
 export const AppLayout = ({
-	hasHorizontalSpacing = true,
+	hasHorizontalSpacing,
 	...props
 }: AppLayoutProps) => {
 	const bottomTabBarHeight = useBottomTabBarHeight();

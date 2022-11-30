@@ -3,7 +3,7 @@ import { AppLayout } from "@layouts/AppLayout";
 
 export const HomeScreen = () => {
 	return (
-		<AppLayout hasHorizontalSpacing={false}>
+		<AppLayout>
 			<PiecesOfNews />
 		</AppLayout>
 	);

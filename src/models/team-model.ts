@@ -3,4 +3,5 @@ export interface TeamModel {
 	name: string;
 	flag_url: string;
 	group: string;
+	region: string;
 }
