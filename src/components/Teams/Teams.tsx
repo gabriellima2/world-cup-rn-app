@@ -1,4 +1,6 @@
-import { useTeams } from "@components/Teams/hooks/useTeams";
+import { StyleSheet } from "react-native";
+
+import { useTeams } from "./hooks/useTeams";
 
 import { Loading } from "@components/Loading";
 import { Error } from "@components/Error";
@@ -15,5 +17,18 @@ export const Teams = () => {
 
 	if (loading) return <Loading />;
 
-	return <List<TeamModel> data={data.teams} Item={Team} />;
+	return (
+		<List<TeamModel>
+			data={data.teams}
+			Item={Team}
+			contentContainerStyle={styles.container}
+		/>
+	);
 };
+
+const styles = StyleSheet.create({
+	container: {
+		paddingTop: 24,
+		paddingBottom: 12,
+	},
+});
