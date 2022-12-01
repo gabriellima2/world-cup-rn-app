@@ -34,15 +34,10 @@ export const CompletTeams = () => {
 
 	if (loading) return <Loading />;
 
-	return (
-		<List<TeamModel> data={data.teams} Item={Team} style={styles.container} />
-	);
+	return <List<TeamModel> data={data.teams} Item={Team} />;
 };
 
 const styles = StyleSheet.create({
-	container: {
-		paddingHorizontal: 12,
-	},
 	item: {
 		flex: 1,
 		flexDirection: "row",

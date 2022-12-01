@@ -1,10 +1,10 @@
-import { Text } from "react-native";
 import { AppLayout } from "@layouts/AppLayout";
+import { Groups } from "@components/Groups";
 
 export const GroupScreen = () => {
 	return (
 		<AppLayout>
-			<Text>Group</Text>
+			<Groups />
 		</AppLayout>
 	);
 };

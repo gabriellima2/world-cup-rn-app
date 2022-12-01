@@ -37,15 +37,11 @@ export const PiecesOfNews = () => (
 	<List<NewsModel>
 		data={piecesOfNews}
 		Item={News}
-		contentContainerStyle={styles.container}
 		ListHeaderComponent={Header}
 	/>
 );
 
 const styles = StyleSheet.create({
-	container: {
-		paddingHorizontal: 12,
-	},
 	news: {
 		marginBottom: 24,
 		borderRadius: 8,

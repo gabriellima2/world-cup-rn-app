@@ -27,6 +27,10 @@ export const List = <TData extends DataDefaultProps>({
 			{...props}
 			renderItem={renderItem}
 			keyExtractor={keyExtractor}
+			contentContainerStyle={[
+				props.contentContainerStyle,
+				{ paddingHorizontal: 12 },
+			]}
 		/>
 	);
 };
