@@ -1,19 +1,13 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
+
+import { TeamFlag, useTeamsFlag } from "./hooks/useTeamsFlag";
 
 import { Loading } from "@components/Loading";
 import { Error } from "@components/Error";
 import { List } from "@components/List";
-import { Flag } from "@components/Flag";
+import { Team } from "./components";
 
-import { TeamFlag, useTeamsFlag } from "@hooks/useTeamsFlag";
-
-const Team = (props: TeamFlag) => (
-	<View style={styles.item}>
-		<Flag url={props.flag_url} />
-	</View>
-);
-
-export const FlagTeams = () => {
+export const TeamsPreview = () => {
 	const { data, error, loading } = useTeamsFlag();
 
 	if (error || !data) return <Error message="Oops! Verifique sua conexão" />;
@@ -37,8 +31,5 @@ const styles = StyleSheet.create({
 		paddingTop: 4,
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	item: {
-		marginHorizontal: 4,
 	},
 });

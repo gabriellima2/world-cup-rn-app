@@ -23,11 +23,8 @@ module.exports = function(api) {
           "@routes": "./src/routes",
           "@screens": "./src/screens",
           "@interfaces": "./src/interfaces",
-          "@globalTypes": "./src/types",
 					"@services": "./src/services",
 					"@models": "./src/models",
-					"@graphql": "./src/graphql",
-					"@hooks": "./src/hooks",
 					"@theme": "./src/theme.ts",
 					"@mocks": "./src/mocks",
 					"@utils": "./src/utils"

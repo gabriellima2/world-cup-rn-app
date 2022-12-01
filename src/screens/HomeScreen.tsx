@@ -1,4 +1,4 @@
-import { PiecesOfNews } from "@components/PiecesOfNews";
+import { PiecesOfNews } from "@components/PieceOfNews";
 import { AppLayout } from "@layouts/AppLayout";
 
 export const HomeScreen = () => {

@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 
-import { GET_TEAMS } from "@graphql/teams-schema";
+import { GET_TEAMS } from "../schemas/teams-schema";
 import type { TeamModel } from "@models/team-model";
 
 interface Data {

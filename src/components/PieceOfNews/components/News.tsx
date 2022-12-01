@@ -1,23 +1,13 @@
 import { Dimensions, Image, StyleSheet, View } from "react-native";
 
-import { FlagTeams } from "./Teams/FlagTeams";
-import { List } from "./List";
-import { Text } from "./Text";
+import { Text } from "@components/Text";
 
-import { piecesOfNews } from "@mocks/piecesOfNews";
-import type { NewsModel } from "@models/news-model";
 import { theme } from "@theme";
+import type { NewsModel } from "@models/news-model";
 
 const { width } = Dimensions.get("window");
 
-const Header = () => (
-	<View style={styles.header}>
-		<FlagTeams />
-		<Text.Strong style={styles.header__title}>Notícias</Text.Strong>
-	</View>
-);
-
-const News = (props: NewsModel) => (
+export const News = (props: NewsModel) => (
 	<View style={styles.news}>
 		<Image
 			source={{ uri: props.image_url || undefined }}
@@ -31,14 +21,6 @@ const News = (props: NewsModel) => (
 			</Text.Paragraph>
 		</View>
 	</View>
-);
-
-export const PiecesOfNews = () => (
-	<List<NewsModel>
-		data={piecesOfNews}
-		Item={News}
-		ListHeaderComponent={Header}
-	/>
 );
 
 const styles = StyleSheet.create({
@@ -66,13 +48,5 @@ const styles = StyleSheet.create({
 	texts__paragraph: {
 		color: theme.utilColor,
 		fontSize: 13,
-	},
-	header: {
-		marginTop: 16,
-	},
-	header__title: {
-		fontSize: 13,
-		color: theme.utilColor,
-		marginBottom: 8,
 	},
 });

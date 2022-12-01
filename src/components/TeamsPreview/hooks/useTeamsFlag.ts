@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 
-import { GET_TEAMS_FLAG } from "@graphql/teams-schema";
+import { GET_TEAMS_FLAG } from "../schemas/teams-preview-schema";
 import type { TeamModel } from "@models/team-model";
 
 export type TeamFlag = Pick<TeamModel, "flag_url" | "id">;

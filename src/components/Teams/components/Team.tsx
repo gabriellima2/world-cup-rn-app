@@ -1,17 +1,12 @@
 import { StyleSheet, View } from "react-native";
 
-import { useTeams } from "@hooks/useTeams";
-
-import { Loading } from "@components/Loading";
-import { Error } from "@components/Error";
 import { Flag } from "@components/Flag";
-import { List } from "@components/List";
 import { Text } from "@components/Text";
 
 import type { TeamModel } from "@models/team-model";
 import { theme } from "@theme";
 
-const Team = (props: TeamModel) => (
+export const Team = (props: TeamModel) => (
 	<View style={styles.item}>
 		<View style={styles.item__main}>
 			<Flag url={props.flag_url} style={styles.item__image} />
@@ -25,17 +20,6 @@ const Team = (props: TeamModel) => (
 		<Text.Medium style={styles.item__group}>Grupo {props.group}</Text.Medium>
 	</View>
 );
-
-export const CompletTeams = () => {
-	const { data, error, loading } = useTeams();
-
-	if (error || !data?.teams)
-		return <Error message="Oops! Verifique sua conexão e/ou renicie o app" />;
-
-	if (loading) return <Loading />;
-
-	return <List<TeamModel> data={data.teams} Item={Team} />;
-};
 
 const styles = StyleSheet.create({
 	item: {
