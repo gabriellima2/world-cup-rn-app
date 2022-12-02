@@ -13,7 +13,10 @@
 			"@models/*": ["./src/models/*"],
 			"@mocks/*": ["./src/mocks/*"],
 			"@utils/*": ["./src/utils/*"],
-    },
+			"@hooks/*": ["./src/hooks/*"],
+			"@globalTypes/*": ["./src/@types/*"],
+			"@styles/*": ["./src/styles/*"],
+		},
   },
 	"typeRoots": ["./types"],
   "extends": "expo/tsconfig.base"

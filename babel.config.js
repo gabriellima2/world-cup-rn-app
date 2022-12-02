@@ -27,7 +27,10 @@ module.exports = function(api) {
 					"@models": "./src/models",
 					"@theme": "./src/theme.ts",
 					"@mocks": "./src/mocks",
-					"@utils": "./src/utils"
+					"@utils": "./src/utils",
+					"@hooks": "./src/hooks",
+					"@globalTypes": "./src/@types",
+					"@styles": "./src/styles",
         }
       }]
     ]

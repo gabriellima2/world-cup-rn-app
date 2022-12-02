@@ -8,39 +8,13 @@ import { Icon } from "@components/Icon";
 
 import { GroupScreen } from "@screens/GroupScreen";
 import { HomeScreen } from "@screens/HomeScreen";
-import { TeamScreen } from "@screens/TeamScreen";
+import { StackTeams } from "./Stacks";
+
+import { handleTabNavigationVisibility } from "@utils/handle-tab-navigation-visibility";
+import { headerDefaultStyle } from "@styles/header-default-style";
 import { theme } from "@theme";
 
 const Tab = createBottomTabNavigator();
-
-const styles: BottomTabNavigationOptions = {
-	tabBarHideOnKeyboard: true,
-	tabBarActiveTintColor: theme.utilColor,
-	tabBarInactiveTintColor: theme.fontColor,
-
-	headerStyle: {
-		borderBottomWidth: 2,
-		borderBottomColor: theme.minColor,
-		backgroundColor: theme.mainColor.primary,
-	},
-	headerTitleStyle: {
-		fontFamily: "Poppins_700Bold",
-		textTransform: "capitalize",
-		fontSize: 16,
-		color: theme.fontColor,
-	},
-
-	tabBarStyle: {
-		height: 50,
-		borderTopWidth: 2,
-		borderTopColor: theme.minColor,
-		position: "absolute",
-		backgroundColor: theme.mainColor.secondary,
-	},
-	tabBarLabelStyle: {
-		fontFamily: "Poppins_500Medium",
-	},
-};
 
 function setRouteIcon(
 	iconName: string
@@ -58,7 +32,28 @@ function setRouteIcon(
 export const Routes = () => {
 	return (
 		<NavigationContainer independent>
-			<Tab.Navigator initialRouteName="home" screenOptions={{ ...styles }}>
+			<Tab.Navigator
+				initialRouteName="home"
+				screenOptions={({ route }) => ({
+					...headerDefaultStyle,
+
+					tabBarHideOnKeyboard: true,
+					tabBarActiveTintColor: theme.utilColor,
+					tabBarInactiveTintColor: theme.fontColor,
+
+					tabBarStyle: {
+						display: handleTabNavigationVisibility(route, "search"),
+						height: 50,
+						borderTopWidth: 2,
+						borderTopColor: theme.minColor,
+						position: "absolute",
+						backgroundColor: theme.mainColor.secondary,
+					},
+					tabBarLabelStyle: {
+						fontFamily: "Poppins_500Medium",
+					},
+				})}
+			>
 				<Tab.Screen
 					name="home"
 					component={HomeScreen}
@@ -69,12 +64,16 @@ export const Routes = () => {
 					}}
 				/>
 				<Tab.Screen
-					name="team"
-					component={TeamScreen}
-					options={{ ...setRouteIcon("soccer-field"), title: "Seleções" }}
+					name="teams"
+					component={StackTeams}
+					options={{
+						...setRouteIcon("soccer-field"),
+						headerShown: false,
+						tabBarLabel: "Seleções",
+					}}
 				/>
 				<Tab.Screen
-					name="group"
+					name="groups"
 					component={GroupScreen}
 					options={{ ...setRouteIcon("table"), title: "Grupos" }}
 				/>
