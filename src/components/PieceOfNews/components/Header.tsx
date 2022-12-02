@@ -3,7 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { TeamsPreview } from "@components/TeamsPreview";
 import { Text } from "@components/Text";
 
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 export const Header = () => (
 	<View style={styles.header}>

@@ -1,6 +1,6 @@
 import { StyleSheet, Text as TextRN, TextProps } from "react-native";
 
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 const Title = (props: TextProps) => (
 	<TextRN {...props} style={[styles.title, props.style]} />

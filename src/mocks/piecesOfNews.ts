@@ -1,4 +1,4 @@
-import { generateId } from "@utils/generateId";
+import { generateId } from "@utils/generate-id";
 
 export const piecesOfNews = [
 	{

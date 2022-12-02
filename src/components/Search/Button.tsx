@@ -3,7 +3,7 @@ import { useStackNavigate } from "@hooks/useNavigate";
 
 import { Icon } from "@components/Icon";
 
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 export const Button = () => {
 	const navigate = useStackNavigate("search");

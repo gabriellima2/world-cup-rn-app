@@ -4,7 +4,7 @@ import { Flag } from "@components/Flag";
 import { Text } from "@components/Text";
 
 import type { TeamModel } from "@models/team-model";
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 export const Team = (props: TeamModel) => (
 	<View style={styles.item}>

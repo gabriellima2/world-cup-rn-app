@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, TextProps, View, ViewProps } from "react-native";
 
 import { Text } from "./Text";
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 interface HeaderProps extends Omit<TextProps, "children"> {
 	title: string;

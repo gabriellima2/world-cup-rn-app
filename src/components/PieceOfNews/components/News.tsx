@@ -2,7 +2,7 @@ import { Dimensions, Image, StyleSheet, View } from "react-native";
 
 import { Text } from "@components/Text";
 
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 import type { NewsModel } from "@models/news-model";
 
 const { width } = Dimensions.get("window");

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import type{ StackNavigationOptions } from "@react-navigation/stack";
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 export const headerDefaultStyle:
 	 Pick<StackNavigationOptions, "headerTintColor" | "headerStyle" | "headerTitleStyle">

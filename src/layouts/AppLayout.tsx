@@ -2,8 +2,8 @@ import { StyleSheet, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
-import type { IChildren } from "@interfaces/IChildren";
-import { theme } from "@theme";
+import type { IChildren } from "@globalTypes/IChildren";
+import { theme } from "@styles/theme";
 
 interface AppLayoutProps extends IChildren {
 	hasHorizontalSpacing?: boolean;

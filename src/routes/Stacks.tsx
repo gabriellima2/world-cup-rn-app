@@ -7,7 +7,7 @@ import { TeamScreen } from "@screens/TeamScreen";
 
 import { headerDefaultStyle } from "@styles/header-default-style";
 import type { TStacksParams } from "@globalTypes/TStackParams";
-import type { IChildren } from "@interfaces/IChildren";
+import type { IChildren } from "@globalTypes/IChildren";
 
 const Stack = createStackNavigator<TStacksParams>();
 

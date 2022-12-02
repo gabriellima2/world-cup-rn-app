@@ -12,7 +12,7 @@ import { StackTeams } from "./Stacks";
 
 import { handleTabNavigationVisibility } from "@utils/handle-tab-navigation-visibility";
 import { headerDefaultStyle } from "@styles/header-default-style";
-import { theme } from "@theme";
+import { theme } from "@styles/theme";
 
 const Tab = createBottomTabNavigator();
 
