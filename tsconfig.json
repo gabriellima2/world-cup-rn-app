@@ -15,6 +15,7 @@
 			"@globalTypes/*": ["./src/@types/*"],
 			"@styles/*": ["./src/styles/*"],
 			"@contexts/*": ["./src/contexts/*"],
+			"@schemas/*": ["./src/schemas/*"],
 		},
   },
 	"typeRoots": ["./types"],

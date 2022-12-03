@@ -11,18 +11,25 @@ export const SearchScreen = () => {
 	const { searchValue } = useSearchContext();
 	const { data, error, loading } = useSpecificTeams({
 		name: searchValue,
-		filters: [],
 	});
+
+	const hasNoResults = !loading && !data?.teams.length;
+
+	if (error) {
+		return (
+			<AppLayout>
+				<Error message="Oops! Verifique sua conexão e/ou renicie o app" />
+			</AppLayout>
+		);
+	}
 
 	return (
 		<AppLayout>
-			<>
-				{error && (
-					<Error message="Oops! Verifique sua conexão e/ou renicie o app" />
-				)}
+			{hasNoResults && (
+				<Error message="Desculpe! Nenhum resultado encontrado" />
+			)}
 
-				{loading ? <Loading /> : <Teams teams={data!.teams} />}
-			</>
+			{loading ? <Loading /> : <Teams teams={data?.teams || []} />}
 		</AppLayout>
 	);
 };

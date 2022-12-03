@@ -10,13 +10,13 @@ import { Group } from "./components";
 export const Groups = () => {
 	const { data, error, loading } = useGroups();
 
-	if (error || !data) return <Error message="Oops! Verifique sua conexão" />;
+	if (error) return <Error message="Oops! Verifique sua conexão" />;
 
 	if (loading) return <Loading />;
 
 	return (
 		<List
-			data={data.groups}
+			data={data?.groups || []}
 			Item={Group}
 			contentContainerStyle={styles.container}
 		/>

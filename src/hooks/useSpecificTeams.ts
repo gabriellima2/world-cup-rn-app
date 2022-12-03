@@ -1,31 +1,30 @@
-import { gql, useLazyQuery, useQuery } from "@apollo/client";
-import { TeamModel } from "@models/team-model";
+import { useEffect } from "react";
+import { useLazyQuery } from "@apollo/client";
+
+import { GET_BY_NAME_TEAMS } from "@schemas/teams-schema";
+
+import type { TeamModel } from "@models/team-model";
+import { debounce } from "@utils/debounce";
 
 interface UseSpecificTeamsParams {
 	name: string;
-	filters: [];
 }
 
 interface Response {
 	teams: TeamModel[];
 }
 
-const GET_TEAMS = gql`
-	query GetTeams($name: String!) {
-		teams(name: $name) {
-			id
-			name
-			group
-			region
-			flag_url
+export function useSpecificTeams({ name }: UseSpecificTeamsParams) {
+	const [loadTeams, { data, loading, error }] = useLazyQuery<Response>(
+		GET_BY_NAME_TEAMS,
+		{
+			variables: { name },
 		}
-	}
-`;
+	);
 
-export function useSpecificTeams({ name, filters }: UseSpecificTeamsParams) {
-	const { data, loading, error } = useQuery<Response>(GET_TEAMS, {
-		variables: { name },
-	});
+	useEffect(() => {
+		debounce(async () => await loadTeams(), 120);
+	}, [name]);
 
 	return {
 		loading,
