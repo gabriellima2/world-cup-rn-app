@@ -14,6 +14,7 @@
 			"@hooks/*": ["./src/hooks/*"],
 			"@globalTypes/*": ["./src/@types/*"],
 			"@styles/*": ["./src/styles/*"],
+			"@contexts/*": ["./src/contexts/*"],
 		},
   },
 	"typeRoots": ["./types"],

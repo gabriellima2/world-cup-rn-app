@@ -1,5 +1,7 @@
 import { createStackNavigator } from "@react-navigation/stack";
 
+import { SearchContextProvider } from "@contexts/SearchContext";
+
 import { Search } from "@components/Search";
 
 import { SearchScreen } from "@screens/SearchScreen";
@@ -27,16 +29,18 @@ const Navigator = (props: NavigatorProps) => (
 );
 
 export const StackTeams = () => (
-	<Navigator initialRouteName="team">
-		<Stack.Screen
-			name="team"
-			component={TeamScreen}
-			options={{ title: "Seleções", headerRight: () => <Search.Button /> }}
-		/>
-		<Stack.Screen
-			name="search"
-			component={SearchScreen}
-			options={{ title: "", headerRight: () => <Search.Input /> }}
-		/>
-	</Navigator>
+	<SearchContextProvider>
+		<Navigator initialRouteName="team">
+			<Stack.Screen
+				name="team"
+				component={TeamScreen}
+				options={{ title: "Seleções", headerRight: () => <Search.Button /> }}
+			/>
+			<Stack.Screen
+				name="search"
+				component={SearchScreen}
+				options={{ title: "", headerRight: () => <Search.Input /> }}
+			/>
+		</Navigator>
+	</SearchContextProvider>
 );
