@@ -1,7 +1,10 @@
+import { View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
+import { FiltersContextProvider } from "@contexts/FiltersContext";
 import { SearchContextProvider } from "@contexts/SearchContext";
 
+import { TeamFilters } from "@components/TeamFilters";
 import { Search } from "@components/Search";
 
 import { SearchScreen } from "@screens/SearchScreen";
@@ -30,17 +33,36 @@ const Navigator = (props: NavigatorProps) => (
 
 export const StackTeams = () => (
 	<SearchContextProvider>
-		<Navigator initialRouteName="team">
-			<Stack.Screen
-				name="team"
-				component={TeamScreen}
-				options={{ title: "Seleções", headerRight: () => <Search.Button /> }}
-			/>
-			<Stack.Screen
-				name="search"
-				component={SearchScreen}
-				options={{ title: "", headerRight: () => <Search.Input /> }}
-			/>
-		</Navigator>
+		<FiltersContextProvider>
+			<Navigator initialRouteName="team">
+				<Stack.Screen
+					name="team"
+					component={TeamScreen}
+					options={{
+						title: "Seleções",
+						headerRight: () => (
+							<View
+								style={{
+									flexDirection: "row",
+									alignItems: "center",
+									marginRight: 16,
+								}}
+							>
+								<Search.Button />
+								<TeamFilters />
+							</View>
+						),
+					}}
+				/>
+				<Stack.Screen
+					name="search"
+					component={SearchScreen}
+					options={{
+						title: "",
+						headerRight: () => <Search.Input />,
+					}}
+				/>
+			</Navigator>
+		</FiltersContextProvider>
 	</SearchContextProvider>
 );
