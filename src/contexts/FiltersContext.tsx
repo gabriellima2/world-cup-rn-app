@@ -1,33 +1,25 @@
 import { createContext, useContext, useState } from "react";
-import type { IChildren } from "@globalTypes/IChildren";
 
-interface Filters {
-	group: string | null;
-	region: string | null;
-}
+import type { IChildren } from "@globalTypes/IChildren";
+import type { FiltersModel } from "@models/filters-model";
 
 interface FiltersContextProperties {
-	filters: Filters;
-	handleChangeFilter: (key: keyof Filters, value: string) => void;
+	filters: FiltersModel;
+	addFilters: (newFilters: FiltersModel) => void;
 }
 
 const FiltersContext = createContext({} as FiltersContextProperties);
 
 export const FiltersContextProvider = ({ children }: IChildren) => {
-	const [filters, setFilters] = useState<Filters>({
+	const [filters, setFilters] = useState<FiltersModel>({
 		group: null,
 		region: null,
 	});
 
-	const handleChangeFilter = (key: keyof Filters, value: string) => {
-		setFilters((prevState) => ({
-			...prevState,
-			[key]: value,
-		}));
-	};
+	const addFilters = (newFilters: FiltersModel) => setFilters(newFilters);
 
 	return (
-		<FiltersContext.Provider value={{ filters, handleChangeFilter }}>
+		<FiltersContext.Provider value={{ filters, addFilters }}>
 			{children}
 		</FiltersContext.Provider>
 	);

@@ -10,9 +10,7 @@ import { AppLayout } from "@layouts/AppLayout";
 
 export const TeamScreen = () => {
 	const { filters } = useFiltersContext();
-	const { data, error, loading } = useTeams();
-
-	console.log(filters);
+	const { data, error, loading } = useTeams({ filters });
 
 	return (
 		<AppLayout>

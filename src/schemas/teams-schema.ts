@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const GET_TEAMS = gql`
-	query GetTeams {
-		teams {
+	query GetTeams($group: String, $region: String) {
+		teams(group: $group, region: $region) {
 			id
 			name
 			group
