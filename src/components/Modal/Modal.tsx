@@ -5,40 +5,62 @@ import {
 	ModalProps as RNModalProps,
 	StyleSheet,
 	TouchableOpacityProps,
+	Dimensions,
 } from "react-native";
 
+import { Overlay } from "@components/Overlay";
 import { Button } from "./components";
+
+import { theme } from "@styles/theme";
+import { Text } from "@components/Text";
 
 interface ModalProps extends Omit<RNModalProps, "visible" | "animationType"> {
 	Trigger: (props: TouchableOpacityProps) => JSX.Element;
 	onApply: () => void;
+	title: string;
 }
 
-export const Modal = ({ Trigger, onApply, ...props }: ModalProps) => {
+const { width } = Dimensions.get("window");
+
+export const Modal = ({ Trigger, onApply, title, ...props }: ModalProps) => {
 	const [isVisible, setIsVisible] = useState(false);
 
 	const handleHide = () => setIsVisible(false);
 
-	if (!isVisible) return <Trigger onPress={() => setIsVisible(true)} />;
+	const handleConfirm = () => {
+		onApply();
+		handleHide();
+	};
 
 	return (
-		<View style={styles.center}>
-			<RNModal animationType="fade" visible={isVisible} {...props}>
-				{props.children}
+		<>
+			<Trigger onPress={() => setIsVisible(true)} />
 
-				<View>
-					<Button onPress={handleHide}>Cancelar</Button>
-					<Button
-						onPress={() => {
-							onApply();
-							handleHide();
-						}}
+			{isVisible && (
+				<View style={styles.center}>
+					<RNModal
+						{...props}
+						animationType="fade"
+						visible={isVisible}
+						transparent
 					>
-						Aplicar
-					</Button>
+						<Overlay onPress={handleHide}>
+							<View style={styles.container}>
+								<Text.Title style={styles.container__title}>{title}</Text.Title>
+								{props.children}
+
+								<View style={styles.buttons}>
+									<Button style={styles.button__left} onPress={handleHide}>
+										Cancelar
+									</Button>
+									<Button onPress={handleConfirm}>Aplicar</Button>
+								</View>
+							</View>
+						</Overlay>
+					</RNModal>
 				</View>
-			</RNModal>
-		</View>
+			)}
+		</>
 	);
 };
 
@@ -47,5 +69,25 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: "center",
 		justifyContent: "center",
+		position: "absolute",
+	},
+	container: {
+		width: width - 100,
+		paddingVertical: 16,
+		paddingHorizontal: 20,
+		borderRadius: 6,
+		backgroundColor: theme.mainColor.primary,
+	},
+	container__title: {
+		fontSize: 16,
+		marginBottom: 4,
+	},
+	buttons: {
+		alignSelf: "flex-end",
+		flexDirection: "row",
+		marginTop: 16,
+	},
+	button__left: {
+		marginRight: 20,
 	},
 });

@@ -14,7 +14,7 @@ export const TeamFilters = () => {
 	const handleApply = () => console.log(filters);
 
 	return (
-		<Modal Trigger={Trigger} onApply={handleApply}>
+		<Modal Trigger={Trigger} onApply={handleApply} title="Filtrar por">
 			<View>
 				<Select
 					label="Grupo"

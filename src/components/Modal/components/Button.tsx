@@ -1,16 +1,19 @@
-import { Text } from "@components/Text";
 import {
 	StyleSheet,
 	TouchableOpacity,
 	TouchableOpacityProps,
 } from "react-native";
 
+import { Text } from "@components/Text";
+
 export const Button = (props: TouchableOpacityProps) => (
-	<TouchableOpacity {...props} style={[props.style, styles.button]}>
-		<Text.Medium>{props.children}</Text.Medium>
+	<TouchableOpacity {...props} activeOpacity={0.6}>
+		<Text.Medium style={styles.button__text}>{props.children}</Text.Medium>
 	</TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
-	button: {},
+	button__text: {
+		fontSize: 13,
+	},
 });
