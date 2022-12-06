@@ -4,7 +4,7 @@ import PickerSelect, {
 	PickerStyle,
 } from "react-native-picker-select";
 
-import { Text } from "../Text";
+import { Text } from "./Text";
 import { theme } from "@styles/theme";
 
 interface SelectProps extends PickerSelectProps {

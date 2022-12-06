@@ -44,7 +44,7 @@ export const Modal = ({ Trigger, onApply, title, ...props }: ModalProps) => {
 						visible={isVisible}
 						transparent
 					>
-						<Overlay onPress={handleHide}>
+						<Overlay onPress={handleHide} testID="overlay_modal">
 							<View style={styles.container}>
 								<Text.Title style={styles.container__title}>{title}</Text.Title>
 								{props.children}
