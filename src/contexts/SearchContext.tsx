@@ -6,7 +6,7 @@ interface SearchContextProperties {
 	changeSearchValue: (value: string) => void;
 }
 
-const SearchContext = createContext({} as SearchContextProperties);
+export const SearchContext = createContext({} as SearchContextProperties);
 
 export const SearchContextProvider = ({ children }: IChildren) => {
 	const [searchValue, setSearchValue] = useState("");

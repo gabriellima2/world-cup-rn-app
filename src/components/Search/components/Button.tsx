@@ -13,6 +13,8 @@ export const Button = () => {
 			onPress={navigate}
 			activeOpacity={1}
 			style={styles.button}
+			accessibilityLabel="Buscar"
+			accessibilityHint="Será redirecionado para a página de busca"
 		>
 			<Icon name="search-web" size={28} color={theme.fontColor} />
 		</TouchableOpacity>
